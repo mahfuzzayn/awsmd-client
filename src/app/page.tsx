@@ -2,7 +2,7 @@ import HeroSection from "@/components/modules/home/HeroSection";
 
 const HomePage = () => {
   return (
-    <div className="home-page">
+    <div className="main-layout">
       <HeroSection />
     </div>
   )

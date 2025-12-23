@@ -54,20 +54,20 @@ const HeroSection = () => {
             <div className="hero-content flex justify-between text-white">
               {/* Left Content */}
               <div>
-                <div className="font-freigeist-cons text-[120px] leading-[110px] pb-[25px] uppercase">
+                <div className="font-freigeist-cons text-[120px] tracking-tighter leading-[110px] pb-[25px] uppercase">
                   <h1>We create</h1>
                   <div className="flex items-center gap-4">
                     <div className="cursor-pointer w-[70px] h-[70px] flex items-center justify-center rounded-full bg-white text-black">
                       <ArrowDown />
                     </div>
-                    <h1>
+                    <h1 className="font-bold">
                       <i>A</i>
                       wesome
                     </h1>
                   </div>
                   <div>
-                    <h1>Design
-                      <span></span>
+                    <h1 className="font-bold">Design
+                      <span className="h-[100px] w-[20px] relative top-2 left-2 bg-white inline-block animate-pulse"></span>
                     </h1>
                   </div>
                 </div>
@@ -75,8 +75,8 @@ const HeroSection = () => {
                 <Separator />
 
                 <div className="mt-[18px]">
-                  <div className="flex items-center gap-[18px] hover:bg-white rounded-[74px] transition duration-300 py-[6px] px-2.5">
-                    <div className="flex gap-[2px] items-center bg-white rounded-[74px] p-[6.2px] pr-3">
+                  <Link href="/"><div className="flex items-center gap-[18px] group hover:bg-white rounded-[74px] transition duration-300 py-[6px] px-2.5">
+                    <div className="flex gap-[2px] items-center bg-white group-hover:bg-black transition duration-300 rounded-[74px] p-[6.2px] pr-3">
                       <div>
                         <Image src={clutchLogo} alt="Clutch Logo" width={22} height={22} />
                       </div>
@@ -86,16 +86,16 @@ const HeroSection = () => {
                         ))}
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-black">4.9</p>
+                        <p className="text-sm font-medium text-black group-hover:text-white transition duration-300">4.9</p>
                       </div>
                     </div>
                     <div>
-                      <p className="text-[#ffffffb3] text-[14px] uppercase">Gold Verified</p>
+                      <p className="text-[#ffffffb3] text-[14px] uppercase group-hover:text-black transition duration-300">Gold Verified</p>
                     </div>
                     <div>
-                      <p className="font-medium">Our Customer love to work with us, 40 reviews</p>
+                      <p className="font-medium group-hover:text-black transition duration-300">Our Customer love to work with us, 40 reviews</p>
                     </div>
-                  </div>
+                  </div></Link>
                 </div>
               </div>
 

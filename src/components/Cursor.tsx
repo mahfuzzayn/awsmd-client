@@ -55,7 +55,7 @@ const Cursor = () => {
     return (
         <div
             ref={cursorRef}
-            className="cursor fixed w-2.5 h-2.5 bg-primary rounded-full pointer-events-none transition-all duration-100 ease-linear z-1000"
+            className="cursor hidden lg:block fixed w-2.5 h-2.5 bg-primary rounded-full pointer-events-none transition-all duration-100 ease-linear z-1000"
             style={{
                 left: 0,
                 top: 0

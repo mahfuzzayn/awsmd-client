@@ -5,6 +5,8 @@ import "./globals.css";
 import { freigeistConsSans } from "@/lib/fonts";
 import Navigation from "@/components/shared/Navigation";
 import Cursor from "@/components/Cursor";
+import Lenis from "@/components/Lenis";
+import LenisProvider from "@/components/LenisProvider";
 
 const interSans = Inter({
   variable: "--font-inter-sans",
@@ -37,9 +39,13 @@ export default function RootLayout({
       <body
         className={`${interSans.variable} ${plusJakartaSans.variable} ${freigeistConsSans.variable} antialiased`}
       >
-        <Navigation />
-        {children}
-        <Cursor />
+        <LenisProvider>
+          <Navigation />
+          {children}
+
+          {/* Extra Components */}
+          <Cursor />
+        </LenisProvider>
       </body>
     </html>
   );

@@ -67,7 +67,7 @@ const Navigation = () => {
                 </Select>
 
                 {/* Hamburger */}
-                <button className={clsx("h-12 w-12 rounded-full bg-white/30 flex justify-center items-center cursor-pointer transition-colors duration-300", { "bg-gray-300!": hasScrolled })} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <button className={clsx("h-12 w-12 rounded-full bg-white/30 flex justify-center items-center cursor-pointer transition-colors duration-300", { "bg-black/20!": hasScrolled }, { "bg-white/40!": isMenuOpen })} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     <div className="h-3.5 w-4 space-y-1 overflow-hidden">
                         <div className={clsx("h-0.5 w-1/2 bg-white rounded-[2px] ml-auto transform transition-all duration-[0.4s] ease-in-out", { "w-full -rotate-45 translate-x-0 translate-y-[6px]": isMenuOpen })}></div>
                         <div className={clsx("h-0.5 w-full bg-white rounded-[2px] transform transition-all duration-[0.4s] ease-in-out", { "-translate-x-full": isMenuOpen })}></div>

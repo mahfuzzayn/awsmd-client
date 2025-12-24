@@ -11,6 +11,34 @@ import playImg from "@/assets/images/play.png"
 import clickToPlay from "@/assets/images/click-to-play.png"
 import { useRef, useState } from "react";
 import clsx from "clsx";
+import MoveUpButton from "@/components/MoveUpButton";
+
+export const navLinks = [
+  {
+    label: "Home",
+    href: "/"
+  },
+  {
+    label: "Our Services",
+    href: "/services"
+  },
+  {
+    label: "About Us",
+    href: "/about-us"
+  },
+  {
+    label: "Portfolio",
+    href: "/portfolio"
+  },
+  {
+    label: "Reviews",
+    href: "/reviews"
+  },
+  {
+    label: "Contact Us",
+    href: "/contact-us"
+  }
+]
 
 const HeroSection = () => {
   const [play, setPlay] = useState<boolean>(false);
@@ -38,34 +66,7 @@ const HeroSection = () => {
       href: "/contact-us"
     },
   ]
-
-  const heroLinks = [
-    {
-      label: "Home",
-      href: "/"
-    },
-    {
-      label: "Our Services",
-      href: "/services"
-    },
-    {
-      label: "About Us",
-      href: "/about-us"
-    },
-    {
-      label: "Portfolio",
-      href: "/portfolio"
-    },
-    {
-      label: "Reviews",
-      href: "/reviews"
-    },
-    {
-      label: "Contact Us",
-      href: "/contact-us"
-    }
-  ]
-
+  
   const handlePlay = () => {
     setPlay(true)
 
@@ -76,13 +77,12 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section p-3 h-screen">
-      <div className="h-full bg-gray-200 px-[19px] pt-2 pb-[30px] rounded-[33px] overflow-hidden relative">
+      <div className="h-full bg-gray-200 px-3 md:px-[19px] pt-2 pb-[30px] rounded-[33px] overflow-hidden relative">
         {/* Hero Video */}
         <video className="h-full w-full absolute z-10 inset-0 pointer-event-none object-cover object-center" poster={heroPoster.src} autoPlay muted loop>
           <source src="./hero.mp4" type="video/mp4"></source>
         </video>
 
-        {/* Hero Content */}
         <div className="flex flex-col justify-between h-full relative z-20">
           {/* Hero Header */}
           <header className="hero-header">
@@ -93,20 +93,23 @@ const HeroSection = () => {
                 <h4 className='text-lg font-bold text-white'>Awsmd</h4>
               </Link>
 
-              <ul className="hidden lg:flex bg-white text-black rounded-[33px] px-9 mx-auto">
+              <div className="hidden lg:flex bg-white text-black rounded-[33px] px-9 mx-auto">
                 {menuLinks.map(link => (
-                  <li key={link.href} className="px-5 py-[16px]">
-                    <Link href={link.href} className="text-[15px] font-medium">{link.label}</Link>
-                  </li>
+                  <div key={link.href} className="flex items-center">
+                    <button className="cursor-pointer py-[18px] px-5 text-[15px] h-12.75 font-medium group overflow-hidden">
+                      <MoveUpButton label={link.label} />
+                    </button>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
             </div>
           </header>
 
-          <div className="hero-content flex justify-between pt-[25px] px-5">
+          {/* Hero Content */}
+          <div className="hero-content flex flex-col lg:flex-row justify-between pt-[25px] lg:px-5">
             {/* Left Content */}
-            <div className="flex justify-between text-white">
+            <div className="flex justify-between text-white pb-10">
               <div>
                 <div className="font-freigeist-cons text-[clamp(4.5rem,10vw,10rem)] tracking-tighter leading-[clamp(4.5rem,10vw,8rem)] pb-[25px] uppercase">
                   <h1>We create</h1>
@@ -152,11 +155,6 @@ const HeroSection = () => {
                   </div></Link>
                 </div>
               </div>
-
-              {/* Right Content */}
-              <div>
-
-              </div>
             </div>
 
             {/* Right Content */}
@@ -164,7 +162,7 @@ const HeroSection = () => {
               {/* Links */}
               <div className="hidden lg:block space-y-[18px]">
                 {
-                  heroLinks.map(link => (
+                  navLinks.map(link => (
                     <li key={link.href} className="list-none text-right">
                       <Link href={link.href} className="font-plus-jakarta-sans text-[15px] hover:text-gray-500 transition duration-300 font-medium">{link.label}</Link>
                     </li>
@@ -173,30 +171,32 @@ const HeroSection = () => {
               </div>
 
               {/* Video */}
-              <div>
-                <button className={clsx("relative right-6 top-6 cursor-pointer bg-white/50 h-[clamp(60px,5vw,90px)] w-[clamp(60px,5vw,90px)] flex justify-center items-center rounded-full", { "hidden": play && play })} onClick={handlePlay}>
-                  <Image src={clickToPlay} alt="Click to Play" className="h-[138%] min-w-[138%] animate-spin" style={{ animationDuration: "10s" }} />
-                  <Image src={playImg} alt="Play Icon" className="absolute" />
-                </button>
+              <div className="flex">
+                <div className="mt-10 lg:mt-0 relative">
+                  <button className={clsx("absolute top-[40%] -right-8 lg:-left-10 lg:-top-10 cursor-pointer bg-white/50 h-[clamp(60px,5vw,90px)] w-[clamp(60px,5vw,90px)] flex justify-center items-center rounded-full", { "hidden": play && play })} onClick={handlePlay}>
+                    <Image src={clickToPlay} alt="Click to Play" className="h-[138%] min-w-[138%] animate-spin" style={{ animationDuration: "10s" }} />
+                    <Image src={playImg} alt="Play Icon" className="absolute" />
+                  </button>
 
-                {/* Auto Player Video */}
-                <iframe
-                  ref={autoPlayerRef}
-                  className="hero-video-autoplay h-[230px] w-[405px] rounded-[20px]"
-                  title="AWSMD Showreel"
-                  src="https://player.vimeo.com/video/823892274?h=fc36315143&autoplay=1&loop=1&muted=1&background=1"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                  {/* Auto Player Video */}
+                  <iframe
+                    ref={autoPlayerRef}
+                    className="hero-video-autoplay h-[195px] w-[345px] lg:h-[230px] lg:w-[405px] rounded-[20px]"
+                    title="AWSMD Showreel"
+                    src="https://player.vimeo.com/video/823892274?h=fc36315143&autoplay=1&loop=1&muted=1&background=1"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
 
-                {/* Main Player Video */}
-                <iframe
-                  className={clsx("hero-video-autoplay h-[230px] w-[405px] rounded-[20px]", { "hidden": !autoPlayerRef.current && !play })}
-                  title="AWSMD Showreel"
-                  src={videoSrc}
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+                  {/* Main Player Video */}
+                  <iframe
+                    className={clsx("hero-video-autoplay h-[195px] w-[345px] lg:h-[230px] lg:w-[405px] rounded-[20px]", { "hidden": !autoPlayerRef.current && !play })}
+                    title="AWSMD Showreel"
+                    src={videoSrc}
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>

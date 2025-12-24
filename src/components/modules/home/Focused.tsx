@@ -18,7 +18,7 @@ const Focused = () => {
                                 whitespace-nowrap 
                                 font-medium 
                                 text-[#2ca8fe]
-                                leading-none
+                                leading-tight
                             ">
                                 {text}
                             </p>

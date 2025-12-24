@@ -159,6 +159,20 @@
       transform: translate3d(-50%, 0, 0);
     }
   }
+
+  .service-image {
+    animation: smoothScale 4s ease-in-out infinite;
+    will-change: transform;
+  }
+  
+  @keyframes smoothScale {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.20);
+    }
+  }
 }
 
 body {

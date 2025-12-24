@@ -3,19 +3,19 @@
 import AnimatedButton from '../AnimatedButton'
 import { Copy, Plus, Star } from 'lucide-react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import AwsmdLogo from '../icons/Awsmd'
 import ClutchIcon from '../icons/Clutch'
 import Link from 'next/link'
 import { navLinks } from '../modules/home/HeroSection'
-import CopyIcon from '../icons/Copy'
 import DesignRushIcon from '../icons/DesignRush'
 import DribbbleIcon from '../icons/Dribbble'
 
 const Navigation = () => {
-    const [lang, setLang] = useState<"en" | "cn">("en")
-    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(true)
+    const [lang, setLang] = useState<"en" | "cn">("en");
+    const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+    const [hasScrolled, setHasScrolled] = useState<boolean>(false);
 
     const languages = [
         {
@@ -28,30 +28,46 @@ const Navigation = () => {
         }
     ]
 
+    console.log(hasScrolled)
+
+    useEffect(() => {
+        const handleScrollChange = () => {
+            if (window.scrollY > window.innerHeight) {
+                setHasScrolled(true)
+            } else {
+                setHasScrolled(false)
+            }
+        }
+
+        window.addEventListener("scroll", handleScrollChange)
+
+        return () => {
+            window.removeEventListener("scroll", () => handleScrollChange)
+        }
+    }, [])
+
     return (
         <div className="navigation">
+
             {/* Top Right Floating Menu */}
-            <div className="flex gap-4 items-center fixed top-10 right-10 z-110">
+            <div className="flex gap-4 items-center fixed top-7 lg:top-9 right-10 z-110">
                 <div className="hidden lg:block">
-                    <AnimatedButton label="Become a Client" icon={<Plus size={16} className={clsx("relative top-px")} />} />
+                    <AnimatedButton label="Become a Client" className={clsx({ "text-white bg-primary": hasScrolled })} icon={<Plus size={16} className={clsx("relative top-px")} />} />
                 </div>
 
-                <div className="hidden lg:block">
-                    <Select value={lang} onValueChange={(value) => setLang(value as "en" | "cn")}>
-                        <SelectTrigger className={clsx("text-white [&_svg:not([class*='text-'])]:text-white rounded-[16px] cursor-pointer")} defaultValue="en">
-                            <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent className={clsx("relative right-10 z-110", { "top-12": lang === "en" }, { "top-[76px]": lang === "cn" })}>
-                            {languages.map((item) => (
-                                <SelectItem key={item.value} value={item.value} className="cursor-pointer">{item.label}</SelectItem>
-                            ))}
-                        </SelectContent>
-                    </Select>
-                </div>
-
+                <Select value={lang} onValueChange={(value) => setLang(value as "en" | "cn")}>
+                    <SelectTrigger className={clsx("text-white [&_svg:not([class*='text-'])]:text-white rounded-[16px] cursor-pointer transition-colors duration-300", { "text-primary border-primary [&_svg:not([class*='text-'])]:text-primary": hasScrolled })} defaultValue="en">
+                        <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent className={clsx("relative right-10 z-110", { "top-12": lang === "en" }, { "top-[76px]": lang === "cn" })}>
+                        {languages.map((item) => (
+                            <SelectItem key={item.value} value={item.value} className="cursor-pointer">{item.label}</SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
 
                 {/* Hamburger */}
-                <button className="h-12 w-12 rounded-full bg-white/30 flex justify-center items-center cursor-pointer" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                <button className={clsx("h-12 w-12 rounded-full bg-white/30 flex justify-center items-center cursor-pointer transition-colors duration-300", { "bg-gray-300!": hasScrolled })} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     <div className="h-3.5 w-4 space-y-1 overflow-hidden">
                         <div className={clsx("h-0.5 w-1/2 bg-white rounded-[2px] ml-auto transform transition-all duration-[0.4s] ease-in-out", { "w-full -rotate-45 translate-x-0 translate-y-[6px]": isMenuOpen })}></div>
                         <div className={clsx("h-0.5 w-full bg-white rounded-[2px] transform transition-all duration-[0.4s] ease-in-out", { "-translate-x-full": isMenuOpen })}></div>
@@ -59,34 +75,38 @@ const Navigation = () => {
                     </div>
                 </button>
             </div>
+
             {/* Menu */}
-            <div className={clsx("font-plus-jakarta-sans flex h-full w-full absolute top-0 left-0 z-100 overflow-hidden", { "pointer-events-none": !isMenuOpen }, { "pointer-events-auto": isMenuOpen })}>
+            <div className={clsx("font-plus-jakarta-sans flex h-full w-full fixed top-0 left-0 z-100 overflow-hidden", { "pointer-events-none": !isMenuOpen }, { "pointer-events-auto": isMenuOpen })}>
+
                 {/* Left Part: 350px max */}
-                <div className={clsx("hidden lg:flex flex-col justify-between h-full w-full max-w-[210px] lg:max-w-[350px] bg-[#2722DF] p-10 pb-[50px] transition-transform duration-500 ease-in-out -translate-y-[100vh]", { "translate-y-0": isMenuOpen })}>
-                    <div>
-                        <AwsmdLogo className="text-white h-16 w-16" />
-                    </div>
-                    <div className="text-white space-y-5">
-                        <div className="flex gap-2 items-center">
-                            <div>
-                                <ClutchIcon className="h-7 w-7" />
-                            </div>
-                            <Link href="https://clutch.co/profile/awsmd" target="_blank"><div className="-space-y-1">
-                                <div className="flex">
-                                    {Array.from({ length: 5 }).map((_, index) => <Star key={index} size={16} className="text-white fill-white" strokeWidth={0} />)}
-                                </div>
-                                <span className="text-[11px]">Gold verified, 40 reviews</span>
-                            </div></Link>
+                <div className={clsx("hidden lg:block w-full max-w-[210px] lg:max-w-[350px] bg-[#2722DF] p-10 pb-[50px] transition-transform duration-500 ease-in-out -translate-y-[100vh]", { "translate-y-0": isMenuOpen })}>
+                    <div className={clsx("h-full flex flex-col justify-between transition-opacity duration-1000 opacity-0 ease-in", { "opacity-100": isMenuOpen })}>
+                        <div>
+                            <AwsmdLogo className="text-white h-16 w-16" />
                         </div>
-                        <div className="max-w-[190px] leading-4">
-                            <span className="text-[13px]">Awesome design for awesome businesses</span>
+                        <div className="text-white space-y-5">
+                            <div className="flex gap-2 items-center">
+                                <div>
+                                    <ClutchIcon className="h-7 w-7" />
+                                </div>
+                                <Link href="https://clutch.co/profile/awsmd" target="_blank"><div className="-space-y-1">
+                                    <div className="flex">
+                                        {Array.from({ length: 5 }).map((_, index) => <Star key={index} size={16} className="text-white fill-white" strokeWidth={0} />)}
+                                    </div>
+                                    <span className="text-[11px]">Gold verified, 40 reviews</span>
+                                </div></Link>
+                            </div>
+                            <div className="max-w-[190px] leading-4">
+                                <span className="text-[13px]">Awesome design for awesome businesses</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Right Part all after left */}
                 <div className={clsx("h-full w-full bg-[#4541F1] px-5 py-[40px] pt-[35px] xl:pt-[40px] xl:pl-[45px] xl:pr-[30px] transform transition-transform duration-500 ease-in-out translate-y-full", { "translate-y-0!": isMenuOpen })}>
-                    <div className="h-full flex flex-col font-plus-jakarta-sans">
+                    <div className={clsx("h-full flex flex-col font-plus-jakarta-sans transition-opacity duration-1000 opacity-0 ease-in", { "opacity-100": isMenuOpen })}>
                         {/* Top */}
                         <div>
                             <div className="hidden lg:block">

@@ -136,6 +136,31 @@
   }
 }
 
+@layer components {
+  .marquee-container {
+    @apply w-full overflow-hidden whitespace-nowrap select-none;
+  }
+  
+  .marquee-content {
+    @apply inline-flex;
+    animation: marquee 40s linear infinite;
+    will-change: transform;
+  }
+  
+  .marquee-container:hover .marquee-content {
+    animation-play-state: running;
+  }
+  
+  @keyframes marquee {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+}
+
 body {
   font-family: var(--font-inter-sans);
 }

@@ -32,13 +32,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en">
       <body
         className={`${interSans.variable} ${plusJakartaSans.variable} ${freigeistConsSans.variable} antialiased`}
       >
         <Navigation />
         {children}
-        {/* <Cursor /> */}
+        <Cursor />
       </body>
     </html>
   );

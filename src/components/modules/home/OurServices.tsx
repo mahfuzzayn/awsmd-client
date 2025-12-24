@@ -46,7 +46,7 @@ const OurServices = () => {
 
     return (
         <section className="our-services py-[60px]">
-            <div className="container px-[15px] lg:px-[25px] mx-auto">
+            <div className="container px-[15px] lg:px-[25px] xl:px-[40px] mx-auto">
                 <AwsmdTag serial={1} title="Our Services" />
                 <div className="mt-6 max-w-[1240px]">
                     <p className="text-[#00000061] text-[clamp(24px,5vw,48px)] leading-[clamp(2rem,5vw,3.5rem)]">As a tight-knit team of experts, we create memorable and emotional websites, digital experiences, and native apps.</p>

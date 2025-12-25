@@ -137,6 +137,10 @@
 }
 
 @layer components {
+  .container {
+    max-width: 1688px !important;
+  }
+
   .marquee-container {
     @apply w-full overflow-hidden whitespace-nowrap select-none;
   }

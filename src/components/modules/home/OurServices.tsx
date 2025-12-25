@@ -54,12 +54,12 @@ const OurServices = () => {
                 <div className="mt-[50px]">
                     <ul className="flex flex-col lg:flex-row gap-1">
                         {services.map((service) => (
-                            <li key={service.serial} className="w-full relative overflow-hidden">
-                                <Link href={service.href} className="">
-                                    <div className={clsx("h-full w-full rounded-[7px] text-white p-[15px]", { "bg-[#E4E3DF]": service.serial === 1 }, { "bg-[#F1AE86]": service.serial === 2 }, { "bg-[#90A6D0]": service.serial === 3 })}>
+                            <li key={service.serial} className="w-full relative overflow-hidden rounded-[7px]">
+                                <Link href={service.href}>
+                                    <div className={clsx("h-full w-full text-white p-[15px]", { "bg-[#E4E3DF]": service.serial === 1 }, { "bg-[#F1AE86]": service.serial === 2 }, { "bg-[#90A6D0]": service.serial === 3 })}>
                                         <div className="relative z-10">
                                             <h2 className="text-[clamp(36px,3vw,48px)] leading-[clamp(2.8rem,5vw,3.5rem)] uppercase">{service.title}</h2>
-                                            <p className="text-[14px] lg:text-[16px] mt-[150px] pb-5">{service.description}</p>
+                                            <p className={clsx("whitespace-pre-wrap max-w-[93%] text-[14px] lg:text-[16px] leading-[clamp(0.8rem,5vw,1.2rem)] mt-[240px] md:mt-[120px] lg:mt-[150px] 2xl:mt-[240px] pb-5", { "max-w-[85%]!": service.serial === 1 })}>{service.description}</p>
                                             <Separator className="bg-white" />
                                             <ul className="flex flex-wrap pt-5">
                                                 {service.stacks.map((stack) => (
@@ -77,7 +77,7 @@ const OurServices = () => {
                     </ul>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

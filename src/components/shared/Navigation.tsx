@@ -28,8 +28,6 @@ const Navigation = () => {
         }
     ]
 
-    console.log(hasScrolled)
-
     useEffect(() => {
         const handleScrollChange = () => {
             if (window.scrollY > window.innerHeight) {

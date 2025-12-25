@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import logoImg from "@/assets/images/logo.png"
-import { ArrowDown, Play, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import heroPoster from "@/assets/images/hero_poster.jpg"
 import clutchLogo from "@/assets/images/clutch-logo.png"
@@ -12,6 +12,7 @@ import clickToPlay from "@/assets/images/click-to-play.png"
 import { useRef, useState } from "react";
 import clsx from "clsx";
 import MoveUpButton from "@/components/MoveUpButton";
+import ArrowDown from "@/components/icons/ArrowDown";
 
 export const navLinks = [
   {
@@ -66,7 +67,7 @@ const HeroSection = () => {
       href: "/contact-us"
     },
   ]
-  
+
   const handlePlay = () => {
     setPlay(true)
 
@@ -80,7 +81,7 @@ const HeroSection = () => {
       <div className="h-full bg-gray-200 px-3 md:px-[19px] pt-2 pb-[30px] rounded-[33px] overflow-hidden relative">
         {/* Hero Video */}
         <video className="h-full w-full absolute z-10 inset-0 pointer-event-none object-cover object-center" poster={heroPoster.src} autoPlay muted loop>
-          <source src="./hero.mp4" type="video/mp4"></source>
+          <source src="./videos/hero/hero.mp4" type="video/mp4"></source>
         </video>
 
         <div className="flex flex-col justify-between h-full relative z-20">
@@ -93,7 +94,7 @@ const HeroSection = () => {
                 <h4 className='text-lg font-bold text-white'>Awsmd</h4>
               </Link>
 
-              <div className="hidden lg:flex bg-white text-black rounded-[33px] px-9 mx-auto">
+              <div className="hidden 2xl:flex bg-white text-black rounded-[33px] px-9 mx-auto">
                 {menuLinks.map(link => (
                   <div key={link.href} className="flex items-center">
                     <button className="cursor-pointer py-[18px] px-5 text-[15px] h-12.75 font-medium group overflow-hidden">
@@ -109,13 +110,13 @@ const HeroSection = () => {
           {/* Hero Content */}
           <div className="hero-content flex flex-col lg:flex-row justify-between pt-[25px] lg:px-5">
             {/* Left Content */}
-            <div className="flex justify-between text-white pb-10">
+            <div className="flex justify-between text-white sm:pb-10">
               <div>
-                <div className="font-freigeist-cons text-[clamp(4.5rem,10vw,10rem)] tracking-tighter leading-[clamp(4.5rem,10vw,8rem)] pb-[25px] uppercase">
+                <div className="font-freigeist-cons text-[clamp(2.5rem,10vw,10rem)] tracking-tighter leading-[clamp(2.5rem,10vw,8rem)] pb-[25px] uppercase">
                   <h1>We create</h1>
-                  <div className="flex items-center gap-4">
-                    <div className="cursor-pointer w-[70px] h-[70px] flex items-center justify-center rounded-full bg-white text-black">
-                      <ArrowDown />
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <div className="cursor-pointer w-[clamp(50px,10vw,95px)] h-[clamp(50px,10vw,95px)] flex items-center justify-center rounded-full bg-white text-black relative top-1 sm:top-2">
+                      <ArrowDown className="text-black h-[clamp(1rem,5vw,2rem)] w-[clamp(1rem,5vw,2rem)]" />
                     </div>
                     <h1 className="font-bold">
                       <i>A</i>
@@ -124,17 +125,17 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <h1 className="font-bold">Design
-                      <span className="h-[clamp(4rem,8vw,8rem)] w-[clamp(0.5rem,5vw,1.3rem)] relative top-2 left-2 bg-white inline-block animate-pulse duration-100"></span>
+                      <span className="h-[clamp(2.5rem,8vw,8rem)] w-[clamp(0.5rem,2vw,1.3rem)] relative top-2 left-2 bg-white inline-block animate-pulse duration-100"></span>
                     </h1>
                   </div>
                 </div>
 
                 <Separator />
 
-                <div className="mt-[18px]">
-                  <Link href="/"><div className="flex items-center gap-[18px] group hover:bg-white rounded-[74px] transition duration-300 py-[6px] px-2.5">
+                <div className="mt-5">
+                  <Link href="/"><div className="flex items-center gap-[5px] sm:gap-[18px] group hover:bg-white rounded-[74px] transition duration-300 py-[6px] px-2.5">
                     <div className="flex gap-[2px] items-center bg-white group-hover:bg-black transition duration-300 rounded-[74px] p-[6.2px] pr-3">
-                      <div>
+                      <div className="w-[22px] h-[22px] block">
                         <Image src={clutchLogo} alt="Clutch Logo" width={22} height={22} />
                       </div>
                       <div className="flex">
@@ -147,10 +148,10 @@ const HeroSection = () => {
                       </div>
                     </div>
                     <div>
-                      <p className="text-[#ffffffb3] text-[14px] uppercase group-hover:text-black transition duration-300">Gold Verified</p>
+                      <p className="hidden sm:block text-[#ffffffb3] text-[14px] uppercase group-hover:text-black transition duration-300">Gold Verified</p>
                     </div>
                     <div>
-                      <p className="font-medium group-hover:text-black transition duration-300">Our Customer love to work with us, 40 reviews</p>
+                      <p className="text-[clamp(0.8rem,2vw,1rem)] font-medium group-hover:text-black transition duration-300">Our Customer love to work with us, 40 reviews</p>
                     </div>
                   </div></Link>
                 </div>
@@ -172,7 +173,7 @@ const HeroSection = () => {
 
               {/* Video */}
               <div className="flex">
-                <div className="mt-10 lg:mt-0 relative">
+                <div className="mt-5 min-[450px]:mt-10 lg:mt-0 relative">
                   <button className={clsx("absolute top-[40%] -right-8 lg:-left-10 lg:-top-10 cursor-pointer bg-white/50 h-[clamp(60px,5vw,90px)] w-[clamp(60px,5vw,90px)] flex justify-center items-center rounded-full", { "hidden": play && play })} onClick={handlePlay}>
                     <Image src={clickToPlay} alt="Click to Play" className="h-[138%] min-w-[138%] animate-spin" style={{ animationDuration: "10s" }} />
                     <Image src={playImg} alt="Play Icon" className="absolute" />
@@ -181,7 +182,7 @@ const HeroSection = () => {
                   {/* Auto Player Video */}
                   <iframe
                     ref={autoPlayerRef}
-                    className="hero-video-autoplay h-[195px] w-[345px] lg:h-[230px] lg:w-[405px] rounded-[20px]"
+                    className="hero-video-autoplay h-[clamp(150px,5vw,195px)] w-[clamp(260px,5vw,345px)] lg:h-[230px] lg:w-[405px] rounded-[20px]"
                     title="AWSMD Showreel"
                     src="https://player.vimeo.com/video/823892274?h=fc36315143&autoplay=1&loop=1&muted=1&background=1"
                     allow="autoplay; fullscreen; picture-in-picture"
@@ -190,7 +191,7 @@ const HeroSection = () => {
 
                   {/* Main Player Video */}
                   <iframe
-                    className={clsx("hero-video-autoplay h-[195px] w-[345px] lg:h-[230px] lg:w-[405px] rounded-[20px]", { "hidden": !autoPlayerRef.current && !play })}
+                    className={clsx("hero-video-autoplay h-[clamp(150px,5vw,195px)] w-[clamp(260px,5vw,345px)] lg:h-[230px] lg:w-[405px] rounded-[20px]", { "hidden": !autoPlayerRef.current && !play })}
                     title="AWSMD Showreel"
                     src={videoSrc}
                     allow="autoplay; fullscreen; picture-in-picture"

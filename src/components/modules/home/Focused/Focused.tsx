@@ -1,4 +1,4 @@
-"use client"
+import "./Focused.css"
 
 const Focused = () => {
     const text = "Data driven user focused value based";

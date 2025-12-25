@@ -1,0 +1,125 @@
+/* Partners Marquee Animation - Seamless Infinite Scroll */
+.about-us-partners {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-container {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+  -webkit-animation: marquee 25s linear infinite;
+  -moz-animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+.marquee-content {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+/* Responsive animation speeds */
+@media (max-width: 640px) {
+  .marquee-container {
+    animation-duration: 15s;
+    -webkit-animation-duration: 15s;
+    -moz-animation-duration: 15s;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .marquee-container {
+    animation-duration: 20s;
+    -webkit-animation-duration: 20s;
+    -moz-animation-duration: 20s;
+  }
+}
+
+@media (min-width: 1025px) {
+  .marquee-container {
+    animation-duration: 25s;
+    -webkit-animation-duration: 25s;
+    -moz-animation-duration: 25s;
+  }
+}
+
+/* Smooth hover effects */
+.marquee-wrapper:hover .marquee-container {
+  animation-play-state: running;
+}
+
+/* Partner list items */
+/* .marquee-content ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex-shrink: 0;
+}
+
+.marquee-content li {
+  flex-shrink: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  border-right: 1px solid #e5e5e5;
+}
+
+.marquee-content li:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+}
+*/
+
+.marquee-content li img {
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Keyframe animations with vendor prefixes */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    -moz-transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-webkit-keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@-moz-keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+    -moz-transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Performance optimizations */
+.marquee-content * {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}

@@ -1,0 +1,171 @@
+/* About Us Graph CSS Stylings */
+
+.about-us-graph .first-circle:hover p:nth-child(1),
+.about-us-graph .first-circle:hover p:nth-child(3),
+.about-us-graph .first-circle:hover p:nth-child(4),
+.about-us-graph .second-circle:hover p:nth-child(1),
+.about-us-graph .second-circle:hover p:nth-child(2),
+.about-us-graph .second-circle:hover p:nth-child(4),
+.about-us-graph .second-circle:hover p:nth-child(5),
+.about-us-graph .third-circle:hover p:nth-child(2),
+.about-us-graph .third-circle:hover p:nth-child(3),
+.about-us-graph .third-circle:hover p:nth-child(4) {
+  transition: all 0.4s linear;
+  opacity: 100;
+}
+
+/* First Circle */
+
+.about-us-graph .first-circle:hover p:nth-child(1) {
+  animation: circle1dot1Animate 0.4s linear forwards;
+}
+
+.about-us-graph .first-circle:hover p:nth-child(3) {
+  animation: circle1dot3Animate 0.4s linear forwards;
+}
+
+.about-us-graph .first-circle:hover p:nth-child(4) {
+  animation: circle1dot4Animate 0.4s linear forwards;
+}
+
+@keyframes circle1dot1Animate {
+  from {
+    top: 84.3553%;
+    right: 84.3553%;
+  }
+  to {
+    top: 93.3013%;
+    right: 25%;
+  }
+}
+
+@keyframes circle1dot3Animate {
+  from {
+    top: 84.3553%;
+    right: 84.3553%;
+  }
+  to {
+    top: 54.3578%;
+    right: 99.5097%;
+  }
+}
+
+@keyframes circle1dot4Animate {
+  from {
+    top: 84.3553%;
+    right: 84.3553%;
+  }
+  to {
+    top: 25%;
+    right: 93.3013%;
+  }
+}
+
+/* Second Circle */
+
+.about-us-graph .second-circle:hover p:nth-child(1) {
+  animation: circle2dot1Animate 0.4s linear forwards;
+}
+
+.about-us-graph .second-circle:hover p:nth-child(2) {
+  animation: circle2dot2Animate 0.4s linear forwards;
+}
+
+.about-us-graph .second-circle:hover p:nth-child(4) {
+  animation: circle2dot4Animate 0.4s linear forwards;
+}
+
+.about-us-graph .second-circle:hover p:nth-child(5) {
+  animation: circle2dot5Animate 0.4s linear forwards;
+}
+
+@keyframes circle2dot1Animate {
+  from {
+    top: 84.0553%;
+    right: 84.0553%;
+  }
+  to {
+    top: 88.3022%;
+    right: 17.8606%;
+  }
+}
+
+@keyframes circle2dot2Animate {
+  from {
+    top: 84.0553%;
+    right: 84.0553%;
+  }
+  to {
+    top: 99.5097%;
+    right: 45.6422%;
+  }
+}
+
+@keyframes circle2dot4Animate {
+  from {
+    top: 84.0553%;
+    right: 84.0553%;
+  }
+  to {
+    top: 54.3578%;
+    right: 99.3097%;
+  }
+}
+
+@keyframes circle2dot5Animate {
+  from {
+    top: 84.0553%;
+    right: 84.0553%;
+  }
+  to {
+    top: 32.899%;
+    right: 96.6846%;
+  }
+}
+
+/* Third Circle */
+
+.about-us-graph .third-circle:hover p:nth-child(2) {
+  animation: circle3dot2Animate 0.4s linear forwards;
+}
+
+.about-us-graph .third-circle:hover p:nth-child(3) {
+  animation: circle3dot3Animate 0.4s linear forwards;
+}
+
+.about-us-graph .third-circle:hover p:nth-child(4) {
+  animation: circle3dot4Animate 0.4s linear forwards;
+}
+
+@keyframes circle3dot2Animate {
+  from {
+    top: 12.1447%;
+    right: 12.1447%;
+  }
+  to {
+    top: 82.1394%;
+    right: 11.1978%;
+  }
+}
+
+@keyframes circle3dot3Animate {
+  from {
+    top: 12.1447%;
+    right: 12.1447%;
+  }
+  to {
+    top: 94.7154%;
+    right: 71.1309%;
+  }
+}
+
+@keyframes circle3dot4Animate {
+  from {
+    top: 12.1447%;
+    right: 12.1447%;
+  }
+  to {
+    top: 50%;
+    right: 99.6000%;
+  }
+}

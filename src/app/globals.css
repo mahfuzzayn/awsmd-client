@@ -64,7 +64,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  
+
   --primary: oklch(0.5088 0.2514 273.82);
   --primary-foreground: oklch(0.985 0 0);
 
@@ -141,40 +141,18 @@
     max-width: 1688px !important;
   }
 
-  .marquee-container {
-    @apply w-full overflow-hidden whitespace-nowrap select-none;
-  }
-  
-  .marquee-content {
-    @apply inline-flex;
-    animation: marquee 40s linear infinite;
-    will-change: transform;
-  }
-  
-  .marquee-container:hover .marquee-content {
-    animation-play-state: running;
-  }
-  
-  @keyframes marquee {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-50%, 0, 0);
-    }
-  }
-
   .service-image {
     animation: smoothScale 4s ease-in-out infinite;
     will-change: transform;
   }
-  
+
   @keyframes smoothScale {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
     }
     50% {
-      transform: scale(1.20);
+      transform: scale(1.2);
     }
   }
 }

@@ -6,7 +6,7 @@ const AwsmdTag = ({ serial, title }: { serial?: number; title: string }) => {
                     <span>{serial < 10 ? `0${serial}` : serial}</span>
                     <span className="h-[1.5px] tracking-wide w-4 bg-[#999999] inline-block"></span>
                 </>}
-            <span>{title}</span>
+            <span className="whitespace-nowrap">{title}</span>
         </div>
     )
 }

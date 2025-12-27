@@ -2,19 +2,11 @@ import AwsmdTag from "@/components/shared/AwsmdTag"
 import service1Img from "@/assets/images/our-services/mob-dev.png"
 import service2Img from "@/assets/images/our-services/design-solutions.png"
 import service3Img from "@/assets/images/our-services/web-dev.png"
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import clsx from "clsx";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-
-interface IService {
-    serial: number;
-    title: string;
-    description: string;
-    href: string;
-    stacks: string[];
-    image: StaticImageData;
-}
+import { IService } from "@/types";
 
 const OurServices = () => {
     const services: IService[] = [

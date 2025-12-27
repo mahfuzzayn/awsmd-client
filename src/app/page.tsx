@@ -6,6 +6,7 @@ import Focused from "@/components/modules/home/Focused";
 import HeroSection from "@/components/modules/home/HeroSection";
 import OurPorfolio from "@/components/modules/home/our-portfolio/OurPorfolio";
 import OurServices from "@/components/modules/home/OurServices";
+import Reviews from "@/components/modules/home/reviews/Reviews";
 
 const HomePage = () => {
   return (
@@ -18,6 +19,7 @@ const HomePage = () => {
       <OurPorfolio />
       <Banner />
       <Blog />
+      <Reviews />
     </div>
   )
 }

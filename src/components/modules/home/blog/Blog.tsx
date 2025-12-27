@@ -4,17 +4,11 @@ import AwsmdTag from "@/components/shared/AwsmdTag"
 import blogImg1 from "@/assets/images/blog/syfter.png"
 import blogImg2 from "@/assets/images/blog/vvs.png"
 import blogImg3 from "@/assets/images/blog/ritilo.png"
-import { StaticImageData } from "next/image"
+
 import BlogsCarousel from "./BlogsCarousel"
 
 import "./Blog.css"
-
-export interface IBlog {
-    title: string;
-    description: string;
-    image: StaticImageData;
-    href: string;
-}
+import { IBlog } from "@/types"
 
 const Blog = () => {
     const blogsData: IBlog[] = [

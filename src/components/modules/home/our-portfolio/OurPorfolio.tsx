@@ -3,17 +3,9 @@ import clsx from "clsx";
 import Image from "next/image";
 
 import ArrowDown from "@/components/icons/ArrowDown";
-import AnimatedButton2 from "@/components/AnimatedButton2";
 import AnimatedButton3 from "@/components/AnimatedButton3";
-import { ArrowRight, Dot } from "lucide-react";
-
-export interface IPortfolio {
-    items: {
-        title: string;
-        video?: string;
-        image?: string;
-    }[]
-}
+import { ArrowRight } from "lucide-react";
+import { IPortfolio } from "@/types";
 
 const OurPorfolio = () => {
     const portfolioData: IPortfolio[] = [

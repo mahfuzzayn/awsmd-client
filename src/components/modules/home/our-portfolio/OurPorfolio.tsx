@@ -66,13 +66,13 @@ const OurPorfolio = () => {
                         </div>
                     </div>
                     <div className="max-w-[620px] mt-4 lg:mt-0 lg:pl-[25px]">
-                        <h2 className="font-plus-jakarta-sans text-[#242424] text-[60px] leading-none">We don't do cookie-cutter solutions</h2>
+                        <h2 className="font-plus-jakarta-sans text-[#242424] text-[clamp(32px,5vw,60px)] leading-none">We don't do cookie-cutter solutions</h2>
                         <div className="hidden lg:block mt-[60px]">
                             <button className="cursor-pointer text-[#242424b3] font-medium">Schedule Meeting</button>
                         </div>
                     </div>
                 </header>
-                <ul className="mt-[85px]">
+                <ul className="mt-8 lg:mt-[85px]">
                     {portfolioData.map((portfolio, pIdx) => (
                         <li key={pIdx} className="flex flex-col lg:flex-row">
                             {portfolio.items.map((item, cIdx) => (
@@ -111,7 +111,7 @@ const OurPorfolio = () => {
                         </li>
                     ))}
                 </ul>
-                <AnimatedButton3 className="mt-10 mx-auto" label="Check Full Portfolio" href="https://dribbble.com/awsmd" icon={<ArrowRight className="text-[#242424]" size={16} />} />
+                <AnimatedButton3 className="lg:hidden mt-10 mx-auto" label="Check Full Portfolio" href="https://dribbble.com/awsmd" icon={<ArrowRight className="text-[#242424]" size={16} />} />
             </div>
         </section >
     )

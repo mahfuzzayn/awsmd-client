@@ -1,4 +1,5 @@
 import AboutUs from "@/components/modules/home/about-us/AboutUs";
+import Banner from "@/components/modules/home/banner/Banner";
 import Development from "@/components/modules/home/development/Development";
 import Focused from "@/components/modules/home/Focused";
 import HeroSection from "@/components/modules/home/HeroSection";
@@ -14,6 +15,7 @@ const HomePage = () => {
       <AboutUs />
       <Development />
       <OurPorfolio />
+      <Banner />
     </div>
   )
 }

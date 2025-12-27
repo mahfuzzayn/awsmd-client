@@ -4,7 +4,7 @@ import DevLine from "@/components/icons/DevLine"
 import phone01Img from "@/assets/images/development/phones/phone-01.png"
 import phone02Img from "@/assets/images/development/phones/phone-02.png"
 import Image from "next/image"
-import RunningText from "@/components/modules/home/running-text/RunningText"
+import RunningText from "@/components/shared/running-text/RunningText"
 import Screens from "./Screens"
 
 const Development = () => {

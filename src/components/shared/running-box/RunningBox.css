@@ -1,0 +1,129 @@
+/* RunningBox - True Infinite Seamless Marquee Effect */
+
+.running-box-marquee {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: max-content;
+  animation: marquee-left 40s linear infinite;
+}
+
+.marquee-wrapper[data-direction="right"] {
+  animation: marquee-right 40s linear infinite;
+}
+
+.marquee-item {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee-repeater {
+  display: flex;
+  flex-shrink: 0;
+}
+
+/* True infinite animation for left direction - seamless loop */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* True infinite animation for right direction - seamless loop */
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive animation speeds */
+@media (max-width: 640px) {
+  .marquee-wrapper {
+    animation-duration: 25s;
+  }
+  .marquee-wrapper[data-direction="right"] {
+    animation-duration: 25s;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .marquee-wrapper {
+    animation-duration: 32s;
+  }
+  .marquee-wrapper[data-direction="right"] {
+    animation-duration: 32s;
+  }
+}
+
+@media (min-width: 1025px) {
+  .marquee-wrapper {
+    animation-duration: 40s;
+  }
+  .marquee-wrapper[data-direction="right"] {
+    animation-duration: 40s;
+  }
+}
+
+/* Pause animation on hover */
+.running-box-marquee:hover .marquee-wrapper {
+  animation-play-state: paused;
+}
+
+/* Smooth performance optimization */
+.marquee-wrapper {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Border styling for the boxes */
+.marquee-repeater span span {
+  display: inline-block;
+  flex-shrink: 0;
+  border-style: solid;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .marquee-repeater span span {
+    /* width: 150px;
+    height: 250px; */
+    margin: 0 8px;
+    border-width: 2px;
+    /* border-radius: 20px; */
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .marquee-repeater span span {
+    /* width: 170px;
+    height: 280px; */
+    margin: 0 9px;
+    border-width: 2.5px;
+    /* border-radius: 22px; */
+  }
+}
+
+/* Desktop default sizes */
+.marquee-repeater span span {
+  margin: 0 10.5px;
+  /* width: 185px;
+  height: 307px; */
+  border-width: 2.7px;
+  /* border-radius: 25px; */
+}

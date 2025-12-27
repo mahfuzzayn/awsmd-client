@@ -1,4 +1,4 @@
-import RunningText from './running-text/RunningText'
+import RunningText from '../../shared/running-text/RunningText'
 
 const Focused = () => {
     return (

@@ -63,7 +63,7 @@ const Partners = () => {
                     <div className="marquee-content">
                         <ul className="flex">
                             {partnersData.map((partner) => (
-                                <li key={partner.name} className="w-[clamp(158px,20vw,287px)] h-[clamp(110px,10vw,200px)] flex justify-center items-center border border-l-0">
+                                <li key={partner.name} className="w-[clamp(158px,20vw,287px)] h-[clamp(110px,20vw,200px)] flex justify-center items-center border border-l-0">
                                     <Image src={partner.image} alt={partner.name} className="w-[clamp(35%,10vw,35%)]" />
                                 </li>
                             ))}
@@ -72,7 +72,7 @@ const Partners = () => {
                     <div className="marquee-content">
                         <ul className="flex">
                             {partnersData.map((partner) => (
-                                <li key={`${partner.name}-duplicate`} className="w-[clamp(158px,20vw,287px)] h-[clamp(110px,10vw,200px)] flex justify-center items-center border border-l-0">
+                                <li key={`${partner.name}-duplicate`} className="w-[clamp(158px,20vw,287px)] h-[clamp(110px,20vw,200px)] flex justify-center items-center border border-l-0">
                                     <Image src={partner.image} alt={partner.name} className="w-[clamp(35%,10vw,35%)]" />
                                 </li>
                             ))}

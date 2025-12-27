@@ -1,6 +1,8 @@
 import AboutUs from "@/components/modules/home/about-us/AboutUs";
-import Focused from "@/components/modules/home/Focused/Focused";
+import Development from "@/components/modules/home/development/Development";
+import Focused from "@/components/modules/home/Focused";
 import HeroSection from "@/components/modules/home/HeroSection";
+import OurPorfolio from "@/components/modules/home/our-portfolio/OurPorfolio";
 import OurServices from "@/components/modules/home/OurServices";
 
 const HomePage = () => {
@@ -10,6 +12,8 @@ const HomePage = () => {
       <Focused />
       <OurServices />
       <AboutUs />
+      <Development />
+      <OurPorfolio />
     </div>
   )
 }

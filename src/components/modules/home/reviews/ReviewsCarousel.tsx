@@ -74,10 +74,10 @@ const ReviewsCarousel = ({ reviews }: { reviews: IReview[] }) => {
                                 </p>
                                 <div className="flex justify-between border-t border-[#e5e5e5] pt-10">
                                     <div className="flex items-center">
-                                        <Image src={review.image} alt={review.name} className="w-[78px] h-[78px] rounded-full" />
-                                        <div className="pl-6 space-y-[7px] leading-tight">
-                                            <h3 className="text-[24px] font-semibold tracking-tight">{review.name}</h3>
-                                            <p className="text-[15px] text-[#7f7f7f] tracking-tight">{review.designation}</p>
+                                        <Image src={review.image} alt={review.name} className="w-[clamp(48px,5vw,78px)] h-[clamp(48px,5vw,78px)] rounded-full" />
+                                        <div className="pl-[15px] md:pl-6 space-y-[7px] leading-tight">
+                                            <h3 className="text-[clamp(15px,4vw,24px)] font-semibold tracking-tight">{review.name}</h3>
+                                            <p className="text-[clamp(7px,3vw,15px)] text-[#7f7f7f] tracking-tight">{review.designation}</p>
                                         </div>
                                     </div>
                                     {swiperInstance && (

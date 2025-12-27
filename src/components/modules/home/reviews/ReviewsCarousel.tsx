@@ -9,7 +9,6 @@ import { A11y } from "swiper/modules"
 import { IReview } from '@/types'
 import Image from 'next/image'
 import Quotation from "@/components/icons/Quotation"
-import { ArrowLeft, ArrowRight } from "lucide-react"
 import ArrowDown from "@/components/icons/ArrowDown"
 
 const CustomNavigation = ({ swiper }: { swiper: any }) => {

@@ -10,10 +10,10 @@ import "swiper/css/navigation"
 import "./BlogsCarousel.css"
 
 import { A11y } from "swiper/modules"
-import { IBlog } from "./Blog"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { IBlog } from "@/types"
 
 // Custom Navigation Component
 const CustomNavigation = ({ swiper, children }: { swiper: any, children: React.ReactNode }) => {

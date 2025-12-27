@@ -39,13 +39,13 @@ export default function RootLayout({
       <body
         className={`${interSans.variable} ${plusJakartaSans.variable} ${freigeistConsSans.variable} antialiased`}
       >
-        {/* <LenisProvider> */}
+        <LenisProvider>
           <Navigation />
           {children}
 
           {/* Extra Components */}
-          {/* <Cursor /> */}
-        {/* </LenisProvider> */}
+          <Cursor />
+        </LenisProvider>
       </body>
     </html>
   );

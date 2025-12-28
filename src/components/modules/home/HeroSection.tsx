@@ -77,7 +77,7 @@ const HeroSection = () => {
   }
 
   return (
-    <section className="hero-section p-3 h-screen">
+    <section className="hero-section p-3 lg:h-screen">
       <div className="h-full bg-gray-200 px-3 md:px-[19px] pt-2 pb-[30px] rounded-[33px] overflow-hidden relative">
         {/* Hero Video */}
         <video className="h-full w-full absolute z-10 inset-0 pointer-event-none object-cover object-center" poster={heroPoster.src} autoPlay muted loop>
@@ -108,15 +108,15 @@ const HeroSection = () => {
           </header>
 
           {/* Hero Content */}
-          <div className="hero-content flex flex-col lg:flex-row justify-between pt-[25px] lg:px-5">
+          <div className="hero-content flex flex-col lg:flex-row justify-between mt-12 lg:mt-0 pt-[25px] lg:px-5">
             {/* Left Content */}
             <div className="flex justify-between text-white sm:pb-10">
               <div>
-                <div className="font-freigeist-cons text-[clamp(2.5rem,10vw,10rem)] tracking-tighter leading-[clamp(2.5rem,10vw,8rem)] pb-[25px] uppercase">
+                <div className="font-freigeist-cons text-[clamp(3.125rem,15vw,8rem)] md:text-[clamp(2.5rem,10vw,10rem)] tracking-tighter whitespace-nowrap leading-[clamp(3rem,15vw,10rem)] md:leading-[clamp(2.5rem,10vw,8rem)] md:pb-[25px] uppercase">
                   <h1>We create</h1>
-                  <div className="flex items-center gap-2 sm:gap-4">
-                    <div className="cursor-pointer w-[clamp(50px,10vw,95px)] h-[clamp(50px,10vw,95px)] flex items-center justify-center rounded-full bg-white text-black relative top-1 sm:top-2">
-                      <ArrowDown className="text-black h-[clamp(1rem,5vw,2rem)] w-[clamp(1rem,5vw,2rem)]" />
+                  <div className="flex justify-end md:justify-start items-center gap-2 sm:gap-4">
+                    <div className="hidden md:flex cursor-pointer w-[clamp(50px,10vw,95px)] h-[clamp(50px,10vw,95px)] items-center justify-center rounded-full group bg-white hover:bg-transparent text-black border-4 border-white relative top-1 sm:top-2 transition-all duration-300 ease-in-out">
+                      <ArrowDown className="text-black group-hover:text-white h-[clamp(1rem,5vw,2rem)] w-[clamp(1rem,5vw,2rem)] transition-all duration-300 ease-in-out" />
                     </div>
                     <h1 className="font-bold">
                       <i>A</i>
@@ -125,12 +125,22 @@ const HeroSection = () => {
                   </div>
                   <div>
                     <h1 className="font-bold">Design
-                      <span className="h-[clamp(2.5rem,8vw,8rem)] w-[clamp(0.5rem,2vw,1.3rem)] relative top-2 left-2 bg-white inline-block animate-pulse duration-100"></span>
+                      <span className="max-[420px]:h-[clamp(3rem,10vw,10rem)] h-[clamp(3.125rem,12vw,10rem)] md:h-[clamp(2.5rem,8vw,8rem)] w-[clamp(0.5rem,2vw,1.3rem)] relative top-2 left-2 bg-white inline-block animate-pulse duration-100"></span>
                     </h1>
                   </div>
                 </div>
 
-                <Separator />
+                <div className="flex justify-between items-center w-full gap-2 mt-[30px]">
+                  <div className="md:hidden cursor-pointer flex items-center justify-center rounded-full p-4 group bg-white text-black hover:bg-transparent border-4 border-white relative top-1 sm:top-2 transition-all duration-300 ease-in-out">
+                    <ArrowDown className="text-black group-hover:text-white h-[clamp(0.3rem,5vw,1.2rem)] w-[clamp(0.3rem,5vw,1.2rem)] transition-all duration-300 ease-in-out" />
+                  </div>
+                  <div className="w-full flex gap-1 flex-col text-end relative top-2">
+                    <span className="lg:hidden">Scroll</span>
+                    <div className="w-full h-px bg-white text-white"></div>
+                    <span className="lg:hidden">Down</span>
+                  </div>
+
+                </div>
 
                 <div className="mt-5">
                   <Link href="/"><div className="flex items-center gap-[5px] sm:gap-[18px] group hover:bg-white rounded-[74px] transition duration-300 py-[6px] px-2.5">

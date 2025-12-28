@@ -59,7 +59,7 @@ const Reviews = () => {
     ]
 
     return (
-        <section ref={reviewsRef} className="reviews-section pt-10 pb-[30px] lg:py-[70px] xl:pt-[100px] xl:pb-[150px] 2xl:pt-[150px] 2xl:pb-[210px]">
+        <section ref={reviewsRef} className="reviews-section pt-10 pb-[30px] lg:py-[70px] xl:pt-[100px] xl:pb-[150px] 2xl:pt-[150px] 2xl:pb-[210px] overflow-hidden">
             <div className="container flex flex-col lg:flex-row mx-auto px-[15px] lg:px-[25px xl:px-10">
                 <div className="reviews-left max-w-[255px] flex flex-col">
                     <AwsmdTag serial={6} title="What Our Clients Say" />

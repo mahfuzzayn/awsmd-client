@@ -9,7 +9,7 @@ import Screens from "./Screens"
 
 const Development = () => {
     return (
-        <section className="development-section bg-[#0d0f11] pt-8 overflow-hidden relative">
+        <section className="development-section bg-[#0d0f11] pt-8 relative">
             <div className="dev-line absolute top-8 left-0 z-20 w-full pointer-events-none">
                 <DevLine color="#2D2D2E" className="h-full w-full" />
             </div>

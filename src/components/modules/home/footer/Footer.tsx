@@ -106,17 +106,17 @@ const Footer = () => {
         }
     ]
 
-    useEffect(() => {
-        const handleScroll = (event: any) => {
-            console.log(event.target);
-        }
+    // useEffect(() => {
+    //     const handleScroll = (event: any) => {
+    //         console.log(event.target);
+    //     }
 
-        document.addEventListener("scroll", handleScroll);
+    //     document.addEventListener("scroll", handleScroll);
 
-        return () => {
-            document.removeEventListener("scroll", handleScroll)
-        }
-    }, [])
+    //     return () => {
+    //         document.removeEventListener("scroll", handleScroll)
+    //     }
+    // }, [])
 
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" })

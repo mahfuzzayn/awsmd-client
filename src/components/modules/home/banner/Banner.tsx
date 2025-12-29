@@ -10,7 +10,7 @@ const Banner = () => {
             <div className="container mx-auto px-[15px] lg:px-[25px] xl:px-10">
                 <div className="bg-[#f8f5f2] h-[clamp(380px,50vw,650px)] rounded-[clamp(20px,5vw,130px)] lg:rounded-[clamp(20px,10vw,130px)] relative flex justify-center items-center overflow-hidden">
                     <RunningBox direction="right" />
-                    <h2 className="flex flex-col text-[#2b2d40] text-center font-medium text-[clamp(36px,5vw,88px)] leading-[clamp(44px,5vw,110px)] relative z-2">
+                    <h2 className="flex flex-col text-[#2b2d40] text-center font-medium text-[clamp(36px,5vw,88px)] leading-[clamp(44px,5vw,110px)] relative z-2 whitespace-nowrap">
                         <span>Numbers don't lie</span>
                         <span className="flex justify-center items-center gap-5">
                             <span>so we use Data</span>

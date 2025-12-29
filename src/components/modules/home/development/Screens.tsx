@@ -110,11 +110,11 @@ const Screens = () => {
             </div>
 
             {/* Development Hand - Sticky Phone & Video Section */}
-            <div className="development-hand-wrapper h-[calc(100%+30px)] w-full flex flex-col absolute -top-[30px] left-0">
-                <div className="m-auto h-[940px] w-full flex items-center justify-center overflow-hidden sticky bottom-0 will-change-transform translate-none rotate-none scale-none pointer-events-none">
-                    {/* <Image src={handImg} alt="Hand" className="absolute -top-20 left-0 w-full scale-90 object-cover" style={{ objectPosition: "center top" }} /> */}
+            <div className="development-hand-wrapper h-[calc(100%+15px)] lg:h-[calc(100%+30px)] w-full flex flex-col absolute -top-[15px] lg:-top-[30px] left-0">
+                <div className="mt-auto h-[380px] md:h-[500px] lg:h-[740px] 2xl:h-[940px] w-full flex items-start justify-center overflow-hidden sticky bottom-0 will-change-transform translate-none rotate-none scale-none pointer-events-none">
+                    <Image src={handImg} alt="Hand" className="relative top-2 2xl:top-0 left-0 min-w-[770px]! w-[770px]! md:min-w-[1028.5px]! md:w-[1028.5px]! lg:min-w-[1590px]! lg:w-[1590px]! 2xl:min-w-[1870px]! 2xl:w-[1870px]! object-cover" style={{ objectPosition: "center top" }} />
 
-                    <div className="absolute z-2 w-[145px] h-[305px] top-[23px] rounded-[18px] md:w-[193px] md:h-[405px] md:top-[31px] md:rounded-[22px] lg:w-[297px] lg:h-[630px] lg:top-12 lg:rounded-[35px] 2xl:w-[348px] 2xl:h-[741px] 2xl:top-[56px] 2xl:rounded-[42px]">
+                    <div className="absolute z-2 w-[145px] h-[305px] top-[30px] rounded-[18px] md:w-[193px] md:h-[405px] md:top-[36px] md:rounded-[22px] lg:w-[297px] lg:h-[630px] lg:top-14 lg:rounded-[35px] 2xl:w-[348px] 2xl:h-[741px] 2xl:top-[56px] 2xl:rounded-[42px]">
                         <video autoPlay loop muted className="h-full w-full object-cover object-center" style={{ borderRadius: "inherit" }}>
                             <source src="./videos/development/phone.mp4" type="video/mp4" />
                         </video>

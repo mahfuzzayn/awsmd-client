@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-import localFont from "next/font/local";
 import "./globals.css";
 import { freigeistConsSans } from "@/lib/fonts";
 import Navigation from "@/components/shared/Navigation";
 import Cursor from "@/components/Cursor";
-import Lenis from "@/components/Lenis";
 import LenisProvider from "@/components/LenisProvider";
 
 const interSans = Inter({
@@ -39,13 +37,13 @@ export default function RootLayout({
       <body
         className={`${interSans.variable} ${plusJakartaSans.variable} ${freigeistConsSans.variable} antialiased`}
       >
-        {/* <LenisProvider> */}
+        <LenisProvider>
           <Navigation />
           {children}
 
           {/* Extra Components */}
-          {/* <Cursor /> */}
-        {/* </LenisProvider> */}
+          <Cursor />
+        </LenisProvider>
       </body>
     </html>
   );

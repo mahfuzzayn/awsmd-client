@@ -91,39 +91,34 @@ const Screens = () => {
     ]
 
     return (
-        <div className="development-screens lg:mt-[100px]">
-
-            {/* Sticky Video Container - Positioned outside relative container */}
-            <div className="sticky top-0 w-full z-30">
-                <div className="relative h-full w-full">
-                    <Image src={handImg} alt="Hand" className="absolute -top-6 inset-0 object-cover" />
-
-                    <div className="absolute left-[40.5%] inset-0">
-                        <div className="relative top-9 rounded-[clamp(24px,4vw,42px)] overflow-hidden w-[clamp(180px,20vw,360px)] h-[clamp(360px,50vw,750px)]">
-                            <video autoPlay loop muted className="h-full w-full object-cover">
-                                <source src="./videos/development/phone.mp4" type="video/mp4" />
-                            </video>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Content Container with proper height */}
-            <div className="relative">
-
-                {/* Scrolling Images Container */}
+        <div className="development-screens mt-[60px] lg:mt-[100px]">
+            {/* Development Screens */}
+            <div className="development-screens-wrapper max-w-full overflow-hidden flex justify-center">
                 <div className="pb-10">
                     {screensData.map((screen, index) => (
-                        <ul key={index} className="h-full w-full grid grid-cols-5">
+                        <ul key={index} className="flex">
                             {screen.items.map((item, index) => (
-                                <li key={index} className="m-[clamp(8px,2vw,12.8px)] rounded-[clamp(12px,3vw,20px)] lg:rounded-[clamp(24px,4vw,44px)] overflow-hidden">
-                                    <div className="w-[clamp(120px,18vw,200px)] h-[clamp(240px,36vw,400px)] sm:w-[clamp(150px,20vw,280px)] sm:h-[clamp(300px,40vw,560px)] md:w-[clamp(200px,22vw,365px)] md:h-[clamp(400px,44vw,770px)]">
+                                <li key={index} className="m-2 lg:m-[12.8px] relative rounded-[20px] lg:rounded-[30.25px] 2xl:rounded-[46.75px] overflow-hidden">
+                                    <div className="h-[310px] w-[150px] md:h-[424px] md:w-[200px]  lg:h-[655px] lg:w-[310px] 2xl:h-[770px] 2xl:w-[365px] relative">
                                         {item.image && <Image src={item.image} alt={item.title} className="h-full w-full object-cover" />}
                                     </div>
                                 </li>
                             ))}
                         </ul>
                     ))}
+                </div>
+            </div>
+
+            {/* Development Hand - Sticky Phone & Video Section */}
+            <div className="development-hand-wrapper h-[calc(100%+30px)] w-full flex flex-col absolute -top-[30px] left-0">
+                <div className="m-auto h-[940px] w-full flex items-center justify-center overflow-hidden sticky bottom-0 will-change-transform translate-none rotate-none scale-none pointer-events-none">
+                    {/* <Image src={handImg} alt="Hand" className="absolute -top-20 left-0 w-full scale-90 object-cover" style={{ objectPosition: "center top" }} /> */}
+
+                    <div className="absolute z-2 w-[145px] h-[305px] top-[23px] rounded-[18px] md:w-[193px] md:h-[405px] md:top-[31px] md:rounded-[22px] lg:w-[297px] lg:h-[630px] lg:top-12 lg:rounded-[35px] 2xl:w-[348px] 2xl:h-[741px] 2xl:top-[56px] 2xl:rounded-[42px]">
+                        <video autoPlay loop muted className="h-full w-full object-cover object-center" style={{ borderRadius: "inherit" }}>
+                            <source src="./videos/development/phone.mp4" type="video/mp4" />
+                        </video>
+                    </div>
                 </div>
             </div>
         </div>

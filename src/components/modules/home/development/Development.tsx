@@ -34,11 +34,11 @@ const Development = () => {
                 </div>
                 <RunningText color="#191B1D" direction="right" className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-[150%]" />
             </div>
-            <div className="development-phones w-[clamp(320px,40vw,600px)] h-[clamp(400px,40vw,687px)] absolute z-30 top-[235px] left-1/2 -translate-x-[50%]">
+            <div className="development-phones w-[80%] md:w-[clamp(320px,40vw,600px)] h-[clamp(400px,40vw,687px)] absolute z-30 top-[235px] left-1/2 -translate-x-[50%]">
                 <Image src={phone01Img} alt="phone-01" className="phone phone-1 h-auto w-full max-w-[clamp(195px,30vw,340px)] absolute top-0 left-0" />
-                <Image src={phone02Img} alt="phone-02" className="phone phone-2 h-auto w-full max-w-[clamp(220px,30vw,340px)] absolute bottom-0 right-[5%]" />
+                <Image src={phone02Img} alt="phone-02" className="phone phone-2 h-auto w-full max-w-[clamp(220px,30vw,340px)] absolute bottom-0 right-0 md:right-[5%]" />
             </div>
-            <div className="development-screens-container relative z-40">
+            <div className="development-screens relative z-40">
                 <Screens />
             </div>
         </section>

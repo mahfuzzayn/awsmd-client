@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import "./Footer.css"
 import AwsmdLogo2 from "@/components/icons/Awsmd2"
@@ -13,6 +13,7 @@ import clsx from "clsx"
 
 const Footer = () => {
     const footerRef = useRef<HTMLDivElement | null>(null);
+    const [yPos, setYPos] = useState<number>(-325);
 
     const footerLinks: IFooter[] = [
         {
@@ -106,17 +107,52 @@ const Footer = () => {
         }
     ]
 
-    // useEffect(() => {
-    //     const handleScroll = (event: any) => {
-    //         console.log(event.target);
-    //     }
+    useEffect(() => {
+        let rafId: number | null = null;
+        let current = -325;
+        let target = -325;
 
-    //     document.addEventListener("scroll", handleScroll);
+        const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
 
-    //     return () => {
-    //         document.removeEventListener("scroll", handleScroll)
-    //     }
-    // }, [])
+        const tick = () => {
+            current = current + (target - current) * 0.12;
+            if (Math.abs(target - current) < 0.5) {
+                current = target;
+                setYPos(current);
+                rafId = null;
+                return;
+            }
+            setYPos(current);
+            rafId = window.requestAnimationFrame(tick);
+        };
+
+        const updateTarget = () => {
+            const doc = document.documentElement;
+            const maxScrollTop = doc.scrollHeight - window.innerHeight;
+            const scrollTop = window.scrollY || doc.scrollTop;
+            const distanceToBottom = maxScrollTop - scrollTop;
+
+            const activationRange = Math.max(450, Math.min(900, window.innerHeight * 1.1));
+            const progress = 1 - clamp(distanceToBottom / activationRange, 0, 1);
+            target = -325 + 325 * progress;
+
+            if (rafId === null) {
+                rafId = window.requestAnimationFrame(tick);
+            }
+        };
+
+        updateTarget();
+        window.addEventListener("scroll", updateTarget, { passive: true });
+        window.addEventListener("resize", updateTarget, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", updateTarget);
+            window.removeEventListener("resize", updateTarget);
+            if (rafId !== null) {
+                window.cancelAnimationFrame(rafId);
+            }
+        }
+    }, [])
 
     const handleScrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" })
@@ -124,8 +160,10 @@ const Footer = () => {
 
     return (
         <div className="footer-section parallax relative overflow-hidden">
+            
             <div className="absolute z-2 h-[44px] w-full bg-white rounded-bl-[33px] rounded-br-[33px]"></div>
-            <div ref={footerRef} className="footer-parallax" style={{ transform: `translate3d(0px, 0px, 0px)` }}>
+
+            <div ref={footerRef} className="footer-parallax" style={{ transform: `translate3d(0px, ${yPos}px, 0px)` }}>
                 <footer className="footer bg-[#c9d0d5] pt-[80px] pb-[30px] lg:pt-[120px] lg:pb-[50px]">
                     <div className="container mx-auto px-[15px] lg:px-[25px] xl:px-10">
                         <Link href="/" className="flex gap-[9px] items-center">

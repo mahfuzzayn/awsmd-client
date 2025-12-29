@@ -29,7 +29,7 @@ const AboutUs = () => {
     ]
 
     return (
-        <section className="about-us pt-[70px]">
+        <section className="about-us pt-[70px] overflow-hidden">
             <div className="container px-[15px] lg:px-[25px] xl:px-10 mx-auto">
 
                 {/* Header */}
